@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dr. Ahmed Emad - Madar X</title>
-    <link href="1.jpg" rel="stylesheet">
+    <title>Dr. Emad</title>
+    <link rel="icon" href="https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/063e587367c1d1106ff80aaadeede5/69dbccd41fdb9c954f8bc04d/sh_1776012550204.jpg" type="image/jpeg">
     <style>
         :root {
             --bg-body: #f4f7f6;
@@ -58,18 +58,49 @@
             z-index: 100;
         }
 
-        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
+        .switch { 
+            position: relative; 
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+        }
+        .switch input { 
+            opacity: 0; 
+            width: 0; 
+            height: 0; 
+            position: absolute;
+        }
+        .toggle-icon {
+            font-size: 22px;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .sun-icon {
+            display: inline-block;
+        }
+        .moon-icon {
+            display: none;
+        }
+        .switch input:checked ~ .toggle-icon {
+            transform: rotate(180deg);
+        }
+        .switch input:checked ~ .toggle-icon .sun-icon {
+            display: none;
+        }
+        .switch input:checked ~ .toggle-icon .moon-icon {
+            display: inline-block;
+        }
+
         .slider {
-            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #ccc; transition: .4s; border-radius: 20px;
+            display: none;
         }
         .slider:before {
-            position: absolute; content: ""; height: 14px; width: 14px;
-            left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%;
+            display: none;
         }
-        input:checked + .slider { background-color: var(--accent-glow); }
-        input:checked + .slider:before { transform: translateX(20px); }
+        input:checked + .slider { display: none; }
+        input:checked + .slider:before { display: none; }
 
         .header-container {
             width: 100%;
@@ -85,8 +116,8 @@
         }
 
         .profile-img {
-            width: 180px; /* تقليل الحجم قليلاً ليناسب الشاشات الطويلة */
-            height: 180px;
+            width: 230px; /* تقليل الحجم قليلاً ليناسب الشاشات الطويلة */
+            height: 230px;
             margin: 0 auto;
             border-radius: 50%;
             overflow: hidden;
@@ -105,6 +136,17 @@
         .info-card h1 { margin: 0; font-size: 26px; font-weight: 700; color: var(--text-main); }
         .info-card p { margin: 5px 0; font-size: 18px; color: var(--accent-glow); font-weight: 600; }
 
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .container {
             width: 85%;
             max-width: 380px;
@@ -112,28 +154,39 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            animation: appear 0.8s ease-out;
         }
 
         .slide {
+            position: relative;
             display: flex;
+            justify-content: center;
             align-items: center;
-            padding: 12px 18px;
+            padding: 12px 18px 12px 50px;
             background: var(--bg-card);
             border-radius: 15px;
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             box-shadow: var(--shadow);
             border-right: 5px solid transparent;
+            text-align: center;
         }
 
         .slide:hover { transform: scale(1.03); }
-        .icon { width: 22px; height: 22px; margin-left: 12px; }
+        .icon {
+            position: absolute;
+            left: 18px;
+            width: 22px;
+            height: 22px;
+            margin: 0;
+        }
 
         .fb { border-right-color: #1877f2; }
         .ig { border-right-color: #e1306c; }
         .wa { border-right-color: #25d366; }
+        .yt { border-right-color: #ff0000; }
         .tk { border-right-color: #000000; }
         .tg { border-right-color: #0088cc; }
         .sc { border-right-color: #fffc00; }
@@ -152,24 +205,27 @@
 </head>
 <body>
 
-    <div class="card-id">ID: A1</div>
-
     <div class="toggle-wrapper">
         <label class="switch">
             <input type="checkbox" id="darkModeToggle">
-            <span class="slider"></span>
+            <span class="toggle-icon">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </span>
         </label>
     </div>
 
     <div class="header-container">
         <div class="profile-img">
-            <img src="https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/cd0c33b0594e4433d1a8ca61f11ef7/69622f7e459753fa3e3859ce/sh_1769545476459.jpg" alt="Dr. Ahmed Emad">
+            <a href="https://www.youtube.com/@dr.omda2" target="_blank">
+                <img src="https://surveyheartmedia.s3.ap-south-1.amazonaws.com/files/063e587367c1d1106ff80aaadeede5/69dbccd41fdb9c954f8bc04d/sh_1776012550204.jpg" alt="Dr. Emad">
+            </a>
         </div>
     </div>
 
     <div class="info-card">
-        <h1>𝐷𝑟. 𝐴ℎ𝑚𝑒𝑑 𝐸𝑚𝑎𝑑</h1>
-        <p>𝑃ℎ𝑎𝑟𝑚𝑎𝑐𝑖𝑠𝑡</p>
+        <h1>𝐷𝑟. 𝐸𝑚𝑎𝑑</h1>
+        <p>𝑷𝒉𝒂𝒓𝒎𝒂𝒄𝒊𝒔𝒕 & 𝑪𝒉𝒆𝒎𝒊𝒔𝒕𝒓𝒚 𝒕𝒆𝒂𝒄𝒉𝒆𝒓</p>
     </div>
 
     <div class="container">
@@ -188,6 +244,11 @@
             واتساب - WhatsApp
         </a>
 
+        <a href="https://www.youtube.com/@dr.omda2" class="slide yt" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="icon">
+            يوتيوب - YouTube
+        </a>
+
         <a href="https://www.tiktok.com/@dr.omda2?_r=1&_t=ZS-93Qic1bVppo" class="slide tk" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="icon">
             تيك توك - TikTok
@@ -198,15 +259,12 @@
             تيليجرام - Telegram
         </a>
 
-        <a href="https://www.snapchat.com/add/dr_omda2025?share_id=R035wHnYThE&locale=en-GB" class="slide sc" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670325.png" class="icon">
+        <a href="https://www.snapchat.com/add/dr.omda2?share_id=R035wHnYThE&locale=en-GB" class="slide sc" target="_blank">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAzFBMVEX//AD///8AAAD//wDb29v7+/v29gCqqQD4+Pj7+gDb2wA1NTXz8/OPj4/R0dH///1/fgAgICDk5ORYWFjr6wDl5QCXlgA9PT1jY2OxsbERERHBwACKiQBtbACYmJglJSWnp6fR0QAcGwB2dQBJSQB4eHhFRUWGhoZmZQBvb29QUFAYGBj//+7//ZSxsQBfXgDDw8MwMAA5OAChoABBQAAjIgD//YT//Cz//+H//W///T///VD//tP//qoqKgANDAD//sdTUwD+/bb//GJe0EPgAAALKklEQVR4nN1da3uiOhAGgyB4x7t4wzvWRa3trmfbbWv7///TASUhwUstJER9P53zbEvyNjOTmclkIog+8v9U4dbwe44REPz/nP/iPbMw+NocIzP/j/e8wuHP5pDMrXIRhL+bIJn8b95zCo+XDUkmf5P6AvHfnCBzg3YMh2fT9mRe//KeTjT8+eeTmd+wwuzx8orIfN62kLn4lffIbF54T4UCPvZk8v94T4QGXBsg3MnC7JZGEPN3oDEufucdMvMv3tOgA3XjkHnlPQta+CcKt+3I4HjJC/n7UH8Xc2F+H+rv4kO4G5VxvADhLnbMPb6Emw0wD6EKTJ1/4MIZxQH6H5b4w+rDzsxVuaKZpmHYDgzDNLWKrAosCbExZg6Tsmko1fZw1X9P7NFfDaettW1WmPKhDoeJsS4MnxNH0H9qV+0Kc4GjBEe6zGr78RgRiLdFy5BvgQ5QjcHwHJM9VlOlfO10ADCnb99T2cnbVlGvmg0ot9+/pwHxPjSud3EAqF7OZI+2fJ1sgGA+Hc72odhNp2sO0ul096F5+APGNcoakJWgKe6O65NeQ8qkUslkMpXRl72sNUsHCbXKV8cGlFuktnTrE4eHGIS+7FjjgKhpV8YGVArEBGfZxiERD5lctv6A//DC5D19AkCbElQ6uVNMvPVpWEXs54cGbwIYQGWBTS3dkc5T2dMpYb/yZF6NpAEB52LlUt9zcel0MFl7vBq9AQN/Vs3eSV0JIpWr+b+3upINB6wxG/aNspDIWJgVuAoywMDU5TIJ85H1f7d1BWxAZYXmU/ohFYLNs3EFbNo+l4vVBWeDPIItd1cA2MjjL+khuIgpn02Lcz4S22HGP9J9H5kR2m14C5rS92ZSbCTDkRGlGWRT4CpoQEMLMwmjMHs00nCz4bs0NnSVSxe4MKeQmiCt4bh1ggo0Zd1eeC6OoMGgYMXRqwFmJKvsA1k0hZ9Bk6EjU4y0MI7TCb20KTcTACpbbw6zaFxEEWkNNzkDGpxCNioZCcqZzU1pbG8GzQimzAO0zgOZExcZxv3pyFyQw/lY5kSmDHPKk+hkcryVBqnMMjqZFPwWJyfA32VCucsBwH2TU4wGoP4/UOAiQt95yolMyxu/RoNMz/vYkBMZ6JhZNMhAC9DnY5sB3P87NMhIfM0ZgCcYDRpkdL5kZBj9U7DMDpkmTzKg3PeGDxn8k8hAh4ZL2hmUYZQZ3TNzkIIbDZddE1QSNMkk+ZLR6JKBRxxcggDaKwPJKPe0MjGTAXsgMjT8TJwMiKEyzYMqVwxFUYwyIzGzVdN2Pq/JKmtCQNbQEfk7GzJw90q0TVlgSQdo0FPGQYfM7PDDU5Nl+YZxtPiKzqZZO/LlN4VZvhYYx0vi6LozBJ7XjNgA80RRHBUyevfot99sJglbUC4cHY621xzAlokXDYz+CTJ045kgqgxCT2JhumO89IVupOmihikQi+INoKFyspG75SeX6CySQg4QI1Pa1UMlG+jPxaJKCNUuoCx5clnfjTiiRqY59qtVctAiMJAzVfG+ncbPlaTOLB3t1AxC76bHI8KUwFoUBmc2MiwmrZOTyOSoWGbn75ILnL41vAGfGJKhIlSXYAktAEMykU/JLgXKcdIng3SmSEmsvkMKep4Mzp/8nH+dSjD2LVC905oBGXQam7BiYJPyix5ZJNJkv+CvxFzSMhPkqrVZnKYDrDqeztZyGjksUmOTRwOKP0JixlDUMhNsIEaVTkAmYubLy2R/hlQOj2zYRAACXvezt2q5sBVm56Bn8TEY1tMBjWDT7VGXtdSyFBMXd23I7IxFeXH0Dh4nJaZsjzeArBBXymo0NccJKYg/VavCOgsITELUillqbJJLIts0tGMoCwRlcnGopDNc6ESyqaAxTWciNqqG38oY0VqaBvbRRyO2ak0g2H00bp0SmWTP5xJvTTDQkG8ToQaYBAzGEm92zNc3QRUeAvRoWWeUn9nGfXaGCmfoJGdd6PCIdhs3lzIUszE1LyADHZm4C89BFVqAzk/v/5zGEsYw8V4SBho8EOhS22YcOavzWBqgorPAEU1fExnnNmtHBidjQB+gS+UEAEKCLvP7Opbtf8fFvwFEbfvfowe1ZhVXORAWcaYpaowLHUUzcV0KUP1cAPVUbQ/FM4VYLBp2L3NM5ZyZgH8NNY6LQRiXBwYJJ8lvFlBl3sPBz9I6QsYioYEFAmu2bAAw/N4S9BwZAljSjFURwJ4L3ifjZ3eyL0cGSwQwzAKQfTIoW2UfOpabbZtsQhs3lYFxYZhtxvsEbJm0cgHAxitnevSc5UMssdTGMwMTDcoLvBULRcf/GHJ4ouaNsqgBlWhc1GR8ouGwIXrTLOjZASDINtHsJ03VVT4Oicg5J6plKqrjdpHbEh+eMbNjOHSLGHSlVKLTAbJBpGOdfZ++Q3YUmSyRRE8M7aiONCijYN8TsSwLH+Y4GoGyzUG0g6eDgrl6LCIGIU3IxVlEYhPovta9pHERTWTIs6fEIkJJAO4iu9pyYeMimggcP63DLw3Ae2OVloxOZM8jJeFnz4kIZDDFb8S/KhAS5keHTnT4VxdYupWXwD9NDy1nfoQcw5Z/Hqi2NvRtYV//GfuV3wNdSq+GJiP7YsZF+SEy/tFt+Cw08Et/RnxsmYtUzm/nlAgf3KB75Q6Ko0Y8RXMBZJZZLPCMciddxo+VH+qTuPnouY6Fx2n9KP4M0FYJHN3SqCPFZQz03qQU6B8a8XLdwW2Gh1qpE0dZY8MaFwNDJ6oR0wF4xz+IJvtQUyoduYESlQvR9QsDYzbS+HDIFY3mzkC1nw46SrMtoMWLNSAVSs2DgRNuDgOqU2Ma2BBFmi6eChq1dJNDZz0lOkuzLTvXiZDsbdGiR2VPRzXWeFd5puGz5O8tj+2WzaBNPQCyqfgtAFnuNuiM5rFqsHoPwb2cDYWtmA1ed6GFlNSDtqxvM73f7Gc4muO6ZY1Gk2yn18hFtm16btnoZCejkWVZM7RZTtmWamFRAST1UOzWxqV6J3Qhrd4YlWa1Y73pWVedgFM3T5vd2iiEidM74+7DiU+umB83gxMj7/DTlq0Z69zX2FdpBHJpQfzkNkome/ZToSPkn7AxVmfnMNEvU55M4/jVbA/PcXDZ3Qg4S6d2+kkAjEqgujxIZRFXd30gG4XF45nnTEbL77ZUKXtmWVbbgRJfwZnjDGiGrVRbrUJhMJgevgfSzZ5VHal32GPicdseFAqtVnVtG2a87+zsm6nIctlBxTTs6rRPzm2cPbk6UicgYe+LlkNAqzjfkt2eJtwedPKaxMgVcx3o41CzetKhKdAbk8CqvFXNihxnr5nv4bjVFTvwwFFxXO8s9SRklMwse6NZsFVGS5Ovh4UPIJQHgZkmmsV0elZ3XLiRVXI9luC/D7VrfEtnBwDMs0+CHUC5wjXxAYBy4WNajt7HU7kYBaBSOO8heHieMipYogpH1gpHXqIi8daO4xIWDQDVbG37Z6gMW/ZNvKa3hxNf24VgesrD02BtsjLGjNq9u+kPN59DVBDtXmxk6aswfRy0rJmGsq46Tly1ulZcl0Vm+pgm62dbBVX2oArMt/pYHtSNS9vv5nVwV8g+eE+BHn4LG95ToIcPIc/MnMWOjZD/zXsOtPA3L4gfvCdBC78cMvMX3rOghFdREPN38g7919whI27uwgSon3mXzPwu9s2vjeiSEV/vYWk+xT2Ze9Ca/+YeGXHzxXsuUfHnQ4RkxM9bF7RfeZ9M/sZtwE7IIBlxHktYwwp/X0WcjLi5YT9A/hBJMuKGafzMEuqnGCRzs46Au/UfkLlVSXtFXHAyN2kFXjYYgf8Brd3zmPqvVJAAAAAASUVORK5CYII=" class="icon">
             سناب شات - Snapchat
         </a>
     </div>
-
-    <footer>
-        By <a href="madar-x.com" target="_blank">Madar X</a>
-    </footer>
+    <br>
 
     <script>
         const toggle = document.getElementById('darkModeToggle');
